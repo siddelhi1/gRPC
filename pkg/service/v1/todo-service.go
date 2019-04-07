@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	v1 "gRPC/pkg/api/v1"
+	v1 "grpc-crud/pkg/api/v1"
 )
 
 const (

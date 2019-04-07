@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"flag"
-	v1 "gRPC/pkg/api/v1"
+	v1 "grpc-crud/pkg/api/v1"
 	"log"
 	"time"
 
@@ -101,4 +101,5 @@ func main() {
 		log.Fatalf("Delete failed: %v", err)
 	}
 	log.Printf("Delete result: <%+v>\n\n", res5)
+
 }

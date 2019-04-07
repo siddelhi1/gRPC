@@ -123,4 +123,7 @@ service ToDoService {
 
     // Read all todo tasks
     rpc ReadAll(ReadAllRequest) returns (ReadAllResponse);
+
+    //Delete all the record
+    rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse);
 }

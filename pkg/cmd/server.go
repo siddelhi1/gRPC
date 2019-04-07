@@ -9,8 +9,8 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"gRPC/pkg/protocol/grpc"
-	v1 "gRPC/pkg/service/v1"
+	"grpc-crud/pkg/protocol/grpc"
+	v1 "grpc-crud/pkg/service/v1"
 )
 
 // Config is configuration for Server
@@ -36,11 +36,11 @@ func RunServer() error {
 
 	// get configuration
 	var cfg Config
-	flag.StringVar(&cfg.GRPCPort, "grpc-port", "", "3306")
-	flag.StringVar(&cfg.DatastoreDBHost, "db-host", "", "localhost")
-	flag.StringVar(&cfg.DatastoreDBUser, "db-user", "", "root")
-	flag.StringVar(&cfg.DatastoreDBPassword, "db-password", "", "toortoor")
-	flag.StringVar(&cfg.DatastoreDBSchema, "db-schema", "", "ERP_DB")
+	flag.StringVar(&cfg.GRPCPort, "grpc-port", "", "gRPC port to bind")
+	flag.StringVar(&cfg.DatastoreDBHost, "db-host", "", "Database host")
+	flag.StringVar(&cfg.DatastoreDBUser, "db-user", "", "Database user")
+	flag.StringVar(&cfg.DatastoreDBPassword, "db-password", "", "Database password")
+	flag.StringVar(&cfg.DatastoreDBSchema, "db-schema", "", "Database schema")
 	flag.Parse()
 
 	if len(cfg.GRPCPort) == 0 {
