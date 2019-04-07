@@ -3,6 +3,7 @@ package v1
 import (
 	"context"
 	"errors"
+	v1 "grpc-crud/pkg/api/v1"
 	"reflect"
 	"testing"
 	"time"
@@ -10,8 +11,6 @@ import (
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
-
-	v1 "grpc-crud/pkg/api/v1"
 )
 
 func Test_toDoServiceServer_Create(t *testing.T) {
@@ -647,6 +646,123 @@ func Test_toDoServiceServer_ReadAll(t *testing.T) {
 			}
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("toDoServiceServer.ReadAll() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_toDoServiceServer_DeleteAll(t *testing.T) {
+	ctx := context.Background()
+	db, mock, err := sqlmock.New()
+	if err != nil {
+		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
+	}
+	defer db.Close()
+	s := NewToDoServiceServer(db)
+
+	type args struct {
+		ctx context.Context
+		req *v1.DeleteRequest
+	}
+	tests := []struct {
+		name    string
+		s       v1.ToDoServiceServer
+		args    args
+		mock    func()
+		want    *v1.DeleteResponse
+		wantErr bool
+	}{
+		{
+			name: "OK",
+			s:    s,
+			args: args{
+				ctx: ctx,
+				req: &v1.DeleteRequest{
+					Api: "v1",
+					Id:  1,
+				},
+			},
+			mock: func() {
+				mock.ExpectExec("DELETE FROM ToDo").WithArgs(1).
+					WillReturnResult(sqlmock.NewResult(1, 1))
+			},
+			want: &v1.DeleteResponse{
+				Api:     "v1",
+				Deleted: 1,
+			},
+		},
+		{
+			name: "Unsupported API",
+			s:    s,
+			args: args{
+				ctx: ctx,
+				req: &v1.DeleteRequest{
+					Api: "v1",
+					Id:  1,
+				},
+			},
+			mock:    func() {},
+			wantErr: true,
+		},
+		{
+			name: "DELETE failed",
+			s:    s,
+			args: args{
+				ctx: ctx,
+				req: &v1.DeleteRequest{
+					Api: "v1",
+					Id:  1,
+				},
+			},
+			mock: func() {
+				mock.ExpectExec("DELETE FROM ToDo").WithArgs(1).
+					WillReturnError(errors.New("DELETE failed"))
+			},
+			wantErr: true,
+		},
+		{
+			name: "RowsAffected failed",
+			s:    s,
+			args: args{
+				ctx: ctx,
+				req: &v1.DeleteRequest{
+					Api: "v1",
+					Id:  1,
+				},
+			},
+			mock: func() {
+				mock.ExpectExec("DELETE FROM ToDo").WithArgs(1).
+					WillReturnResult(sqlmock.NewErrorResult(errors.New("RowsAffected failed")))
+			},
+			wantErr: true,
+		},
+		{
+			name: "Not Found",
+			s:    s,
+			args: args{
+				ctx: ctx,
+				req: &v1.DeleteRequest{
+					Api: "v1",
+					Id:  1,
+				},
+			},
+			mock: func() {
+				mock.ExpectExec("DELETE FROM ToDo").WithArgs(1).
+					WillReturnResult(sqlmock.NewResult(1, 0))
+			},
+			wantErr: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tt.mock()
+			got, err := tt.s.Delete(tt.args.ctx, tt.args.req)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("toDoServiceServer.Delete() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if err == nil && !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("toDoServiceServer.Delete() = %v, want %v", got, tt.want)
 			}
 		})
 	}

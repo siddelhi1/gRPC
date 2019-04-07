@@ -111,15 +111,19 @@ message ReadAllResponse{
 message DeleteAllRequest{
     // API versioning: it is my best practice to specify version explicitly
     string api = 1;
+
+    // Unique integer identifier of the todo task to delete
+    string id = 2;
 }
 
-// Contains list of all todo tasks
+// Contains status of delete operation
 message DeleteAllResponse{
     // API versioning: it is my best practice to specify version explicitly
     string api = 1;
 
-    // List of all todo tasks
-    repeated ToDo toDos = 2;
+    // Contains number of entities have beed deleted
+    // Equals 1 in case of succesfull delete
+    int64 id = 2;
 }
 
 // Service to manage list of todo tasks

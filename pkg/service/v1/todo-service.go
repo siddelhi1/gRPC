@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	v1 "grpc-crud/pkg/api/v1"
+	v1 "gRPC/pkg/api/v1"
 )
 
 const (
@@ -260,5 +260,42 @@ func (s *toDoServiceServer) ReadAll(ctx context.Context, req *v1.ReadAllRequest)
 	return &v1.ReadAllResponse{
 		Api:   apiVersion,
 		ToDos: list,
+	}, nil
+}
+
+func (s *toDoServiceServer) DeleteAll(ctx context.Context, req *v1.DeleteAllRequest) (*v1.DeleteAllResponse, error) {
+	// check if the API version requested by client is supported by server
+	if err := s.checkAPI(req.Api); err != nil {
+		return nil, err
+	}
+
+	// get SQL connection from pool
+	c, err := s.connect(ctx)
+	if err != nil {
+		return nil, err
+	}
+	defer c.Close()
+
+	// delete All ToDo
+	res, err := c.ExecContext(ctx, "DELETE FROM services WHERE ID >0")
+	if err != nil {
+		return nil, status.Error(codes.Unknown, "failed to delete ToDo-> "+err.Error())
+	}
+	/*
+		rows, err := res.RowsAffected()
+		if err != nil {
+			return nil, status.Error(codes.Unknown, "failed to retrieve rows affected value-> "+err.Error())
+		}
+
+		if rows == 0 {
+			return nil, status.Error(codes.NotFound, fmt.Sprintf("ToDo with ID='%d' is not found",
+				req.Id))
+		}
+	*/
+	fmt.Printf("%s\n", res)
+
+	return &v1.DeleteAllResponse{
+		Api: apiVersion,
+		//Id:  rows,
 	}, nil
 }
