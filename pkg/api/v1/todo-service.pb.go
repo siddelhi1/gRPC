@@ -3,14 +3,13 @@
 
 package v1
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
-
 import (
-	context "golang.org/x/net/context"
+	context "context"
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	grpc "google.golang.org/grpc"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -22,7 +21,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // Taks we have to do
 type ToDo struct {
@@ -43,16 +42,17 @@ func (m *ToDo) Reset()         { *m = ToDo{} }
 func (m *ToDo) String() string { return proto.CompactTextString(m) }
 func (*ToDo) ProtoMessage()    {}
 func (*ToDo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{0}
+	return fileDescriptor_80b701c7b1c502fe, []int{0}
 }
+
 func (m *ToDo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ToDo.Unmarshal(m, b)
 }
 func (m *ToDo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ToDo.Marshal(b, m, deterministic)
 }
-func (dst *ToDo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ToDo.Merge(dst, src)
+func (m *ToDo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ToDo.Merge(m, src)
 }
 func (m *ToDo) XXX_Size() int {
 	return xxx_messageInfo_ToDo.Size(m)
@@ -106,16 +106,17 @@ func (m *CreateRequest) Reset()         { *m = CreateRequest{} }
 func (m *CreateRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateRequest) ProtoMessage()    {}
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{1}
+	return fileDescriptor_80b701c7b1c502fe, []int{1}
 }
+
 func (m *CreateRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateRequest.Unmarshal(m, b)
 }
 func (m *CreateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_CreateRequest.Marshal(b, m, deterministic)
 }
-func (dst *CreateRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateRequest.Merge(dst, src)
+func (m *CreateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRequest.Merge(m, src)
 }
 func (m *CreateRequest) XXX_Size() int {
 	return xxx_messageInfo_CreateRequest.Size(m)
@@ -155,16 +156,17 @@ func (m *CreateResponse) Reset()         { *m = CreateResponse{} }
 func (m *CreateResponse) String() string { return proto.CompactTextString(m) }
 func (*CreateResponse) ProtoMessage()    {}
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{2}
+	return fileDescriptor_80b701c7b1c502fe, []int{2}
 }
+
 func (m *CreateResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateResponse.Unmarshal(m, b)
 }
 func (m *CreateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_CreateResponse.Marshal(b, m, deterministic)
 }
-func (dst *CreateResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateResponse.Merge(dst, src)
+func (m *CreateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateResponse.Merge(m, src)
 }
 func (m *CreateResponse) XXX_Size() int {
 	return xxx_messageInfo_CreateResponse.Size(m)
@@ -204,16 +206,17 @@ func (m *ReadRequest) Reset()         { *m = ReadRequest{} }
 func (m *ReadRequest) String() string { return proto.CompactTextString(m) }
 func (*ReadRequest) ProtoMessage()    {}
 func (*ReadRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{3}
+	return fileDescriptor_80b701c7b1c502fe, []int{3}
 }
+
 func (m *ReadRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadRequest.Unmarshal(m, b)
 }
 func (m *ReadRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ReadRequest.Marshal(b, m, deterministic)
 }
-func (dst *ReadRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReadRequest.Merge(dst, src)
+func (m *ReadRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadRequest.Merge(m, src)
 }
 func (m *ReadRequest) XXX_Size() int {
 	return xxx_messageInfo_ReadRequest.Size(m)
@@ -253,16 +256,17 @@ func (m *ReadResponse) Reset()         { *m = ReadResponse{} }
 func (m *ReadResponse) String() string { return proto.CompactTextString(m) }
 func (*ReadResponse) ProtoMessage()    {}
 func (*ReadResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{4}
+	return fileDescriptor_80b701c7b1c502fe, []int{4}
 }
+
 func (m *ReadResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadResponse.Unmarshal(m, b)
 }
 func (m *ReadResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ReadResponse.Marshal(b, m, deterministic)
 }
-func (dst *ReadResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReadResponse.Merge(dst, src)
+func (m *ReadResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadResponse.Merge(m, src)
 }
 func (m *ReadResponse) XXX_Size() int {
 	return xxx_messageInfo_ReadResponse.Size(m)
@@ -302,16 +306,17 @@ func (m *UpdateRequest) Reset()         { *m = UpdateRequest{} }
 func (m *UpdateRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateRequest) ProtoMessage()    {}
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{5}
+	return fileDescriptor_80b701c7b1c502fe, []int{5}
 }
+
 func (m *UpdateRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UpdateRequest.Unmarshal(m, b)
 }
 func (m *UpdateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_UpdateRequest.Marshal(b, m, deterministic)
 }
-func (dst *UpdateRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateRequest.Merge(dst, src)
+func (m *UpdateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateRequest.Merge(m, src)
 }
 func (m *UpdateRequest) XXX_Size() int {
 	return xxx_messageInfo_UpdateRequest.Size(m)
@@ -352,16 +357,17 @@ func (m *UpdateResponse) Reset()         { *m = UpdateResponse{} }
 func (m *UpdateResponse) String() string { return proto.CompactTextString(m) }
 func (*UpdateResponse) ProtoMessage()    {}
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{6}
+	return fileDescriptor_80b701c7b1c502fe, []int{6}
 }
+
 func (m *UpdateResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UpdateResponse.Unmarshal(m, b)
 }
 func (m *UpdateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_UpdateResponse.Marshal(b, m, deterministic)
 }
-func (dst *UpdateResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateResponse.Merge(dst, src)
+func (m *UpdateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateResponse.Merge(m, src)
 }
 func (m *UpdateResponse) XXX_Size() int {
 	return xxx_messageInfo_UpdateResponse.Size(m)
@@ -401,16 +407,17 @@ func (m *DeleteRequest) Reset()         { *m = DeleteRequest{} }
 func (m *DeleteRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteRequest) ProtoMessage()    {}
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{7}
+	return fileDescriptor_80b701c7b1c502fe, []int{7}
 }
+
 func (m *DeleteRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeleteRequest.Unmarshal(m, b)
 }
 func (m *DeleteRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DeleteRequest.Marshal(b, m, deterministic)
 }
-func (dst *DeleteRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteRequest.Merge(dst, src)
+func (m *DeleteRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRequest.Merge(m, src)
 }
 func (m *DeleteRequest) XXX_Size() int {
 	return xxx_messageInfo_DeleteRequest.Size(m)
@@ -451,16 +458,17 @@ func (m *DeleteResponse) Reset()         { *m = DeleteResponse{} }
 func (m *DeleteResponse) String() string { return proto.CompactTextString(m) }
 func (*DeleteResponse) ProtoMessage()    {}
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{8}
+	return fileDescriptor_80b701c7b1c502fe, []int{8}
 }
+
 func (m *DeleteResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeleteResponse.Unmarshal(m, b)
 }
 func (m *DeleteResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DeleteResponse.Marshal(b, m, deterministic)
 }
-func (dst *DeleteResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteResponse.Merge(dst, src)
+func (m *DeleteResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteResponse.Merge(m, src)
 }
 func (m *DeleteResponse) XXX_Size() int {
 	return xxx_messageInfo_DeleteResponse.Size(m)
@@ -498,16 +506,17 @@ func (m *ReadAllRequest) Reset()         { *m = ReadAllRequest{} }
 func (m *ReadAllRequest) String() string { return proto.CompactTextString(m) }
 func (*ReadAllRequest) ProtoMessage()    {}
 func (*ReadAllRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{9}
+	return fileDescriptor_80b701c7b1c502fe, []int{9}
 }
+
 func (m *ReadAllRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadAllRequest.Unmarshal(m, b)
 }
 func (m *ReadAllRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ReadAllRequest.Marshal(b, m, deterministic)
 }
-func (dst *ReadAllRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReadAllRequest.Merge(dst, src)
+func (m *ReadAllRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadAllRequest.Merge(m, src)
 }
 func (m *ReadAllRequest) XXX_Size() int {
 	return xxx_messageInfo_ReadAllRequest.Size(m)
@@ -540,16 +549,17 @@ func (m *ReadAllResponse) Reset()         { *m = ReadAllResponse{} }
 func (m *ReadAllResponse) String() string { return proto.CompactTextString(m) }
 func (*ReadAllResponse) ProtoMessage()    {}
 func (*ReadAllResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_todo_service_4f7b6d3911418310, []int{10}
+	return fileDescriptor_80b701c7b1c502fe, []int{10}
 }
+
 func (m *ReadAllResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadAllResponse.Unmarshal(m, b)
 }
 func (m *ReadAllResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ReadAllResponse.Marshal(b, m, deterministic)
 }
-func (dst *ReadAllResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReadAllResponse.Merge(dst, src)
+func (m *ReadAllResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadAllResponse.Merge(m, src)
 }
 func (m *ReadAllResponse) XXX_Size() int {
 	return xxx_messageInfo_ReadAllResponse.Size(m)
@@ -574,6 +584,97 @@ func (m *ReadAllResponse) GetToDos() []*ToDo {
 	return nil
 }
 
+//Request data to delete all the records
+type DeleteAllRequest struct {
+	// API versioning: it is my best practice to specify version explicitly
+	Api                  string   `protobuf:"bytes,1,opt,name=api,proto3" json:"api,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteAllRequest) Reset()         { *m = DeleteAllRequest{} }
+func (m *DeleteAllRequest) String() string { return proto.CompactTextString(m) }
+func (*DeleteAllRequest) ProtoMessage()    {}
+func (*DeleteAllRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_80b701c7b1c502fe, []int{11}
+}
+
+func (m *DeleteAllRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteAllRequest.Unmarshal(m, b)
+}
+func (m *DeleteAllRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteAllRequest.Marshal(b, m, deterministic)
+}
+func (m *DeleteAllRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteAllRequest.Merge(m, src)
+}
+func (m *DeleteAllRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteAllRequest.Size(m)
+}
+func (m *DeleteAllRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteAllRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteAllRequest proto.InternalMessageInfo
+
+func (m *DeleteAllRequest) GetApi() string {
+	if m != nil {
+		return m.Api
+	}
+	return ""
+}
+
+// Contains list of all todo tasks
+type DeleteAllResponse struct {
+	// API versioning: it is my best practice to specify version explicitly
+	Api string `protobuf:"bytes,1,opt,name=api,proto3" json:"api,omitempty"`
+	// List of all todo tasks
+	ToDos                []*ToDo  `protobuf:"bytes,2,rep,name=toDos,proto3" json:"toDos,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteAllResponse) Reset()         { *m = DeleteAllResponse{} }
+func (m *DeleteAllResponse) String() string { return proto.CompactTextString(m) }
+func (*DeleteAllResponse) ProtoMessage()    {}
+func (*DeleteAllResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_80b701c7b1c502fe, []int{12}
+}
+
+func (m *DeleteAllResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteAllResponse.Unmarshal(m, b)
+}
+func (m *DeleteAllResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteAllResponse.Marshal(b, m, deterministic)
+}
+func (m *DeleteAllResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteAllResponse.Merge(m, src)
+}
+func (m *DeleteAllResponse) XXX_Size() int {
+	return xxx_messageInfo_DeleteAllResponse.Size(m)
+}
+func (m *DeleteAllResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteAllResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteAllResponse proto.InternalMessageInfo
+
+func (m *DeleteAllResponse) GetApi() string {
+	if m != nil {
+		return m.Api
+	}
+	return ""
+}
+
+func (m *DeleteAllResponse) GetToDos() []*ToDo {
+	if m != nil {
+		return m.ToDos
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*ToDo)(nil), "v1.ToDo")
 	proto.RegisterType((*CreateRequest)(nil), "v1.CreateRequest")
@@ -586,6 +687,43 @@ func init() {
 	proto.RegisterType((*DeleteResponse)(nil), "v1.DeleteResponse")
 	proto.RegisterType((*ReadAllRequest)(nil), "v1.ReadAllRequest")
 	proto.RegisterType((*ReadAllResponse)(nil), "v1.ReadAllResponse")
+	proto.RegisterType((*DeleteAllRequest)(nil), "v1.DeleteAllRequest")
+	proto.RegisterType((*DeleteAllResponse)(nil), "v1.DeleteAllResponse")
+}
+
+func init() { proto.RegisterFile("todo-service.proto", fileDescriptor_80b701c7b1c502fe) }
+
+var fileDescriptor_80b701c7b1c502fe = []byte{
+	// 454 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0x51, 0x6e, 0xd3, 0x40,
+	0x10, 0x95, 0x9d, 0x34, 0x6d, 0xc6, 0xc4, 0x4d, 0x97, 0x22, 0x59, 0x16, 0x02, 0x6b, 0xc5, 0x47,
+	0xf8, 0xc0, 0x56, 0x8c, 0x84, 0xf8, 0xa8, 0xa8, 0x50, 0xc3, 0x05, 0x4c, 0x39, 0x40, 0x5a, 0x0f,
+	0xd5, 0x4a, 0x4e, 0xd6, 0xd8, 0x9b, 0x1c, 0x81, 0x3b, 0x71, 0x3b, 0xb4, 0x3b, 0xde, 0xc4, 0xb6,
+	0x70, 0x3e, 0xe8, 0x5f, 0xf6, 0xed, 0x7b, 0xf3, 0xde, 0xcc, 0x4e, 0x0c, 0x4c, 0xc9, 0x5c, 0x7e,
+	0xa8, 0xb1, 0xda, 0x8b, 0x47, 0x8c, 0xcb, 0x4a, 0x2a, 0xc9, 0xdc, 0xfd, 0x32, 0x7c, 0xfb, 0x24,
+	0xe5, 0x53, 0x81, 0x89, 0x41, 0x1e, 0x76, 0x3f, 0x13, 0x25, 0x36, 0x58, 0xab, 0xf5, 0xa6, 0x24,
+	0x12, 0xff, 0xed, 0xc0, 0xf8, 0x5e, 0xae, 0x24, 0xf3, 0xc1, 0x15, 0x79, 0xe0, 0x44, 0xce, 0x62,
+	0x94, 0xb9, 0x22, 0x67, 0xd7, 0x70, 0xa6, 0x84, 0x2a, 0x30, 0x70, 0x23, 0x67, 0x31, 0xcd, 0xe8,
+	0xc0, 0x22, 0xf0, 0x72, 0xac, 0x1f, 0x2b, 0x51, 0x2a, 0x21, 0xb7, 0xc1, 0xc8, 0xdc, 0xb5, 0x21,
+	0xf6, 0x09, 0x2e, 0x2a, 0xdc, 0x88, 0x6d, 0x8e, 0x55, 0x30, 0x8e, 0x9c, 0x85, 0x97, 0x86, 0x31,
+	0x85, 0x88, 0x6d, 0x88, 0xf8, 0xde, 0x86, 0xc8, 0x0e, 0x5c, 0x7e, 0x0b, 0xb3, 0xbb, 0x0a, 0xd7,
+	0x0a, 0x33, 0xfc, 0xb5, 0xc3, 0x5a, 0xb1, 0x39, 0x8c, 0xd6, 0xa5, 0x30, 0x89, 0xa6, 0x99, 0xfe,
+	0xc9, 0x5e, 0xc3, 0x58, 0xc9, 0x95, 0x34, 0x89, 0xbc, 0xf4, 0x22, 0xde, 0x2f, 0x63, 0x1d, 0x3d,
+	0x33, 0x28, 0x4f, 0xc1, 0xb7, 0x05, 0xea, 0x52, 0x6e, 0x6b, 0xfc, 0x47, 0x05, 0x6a, 0xd2, 0xb5,
+	0x4d, 0xf2, 0x04, 0xbc, 0x0c, 0xd7, 0xf9, 0xb0, 0x65, 0x5f, 0xf0, 0x05, 0x5e, 0x90, 0x60, 0xd0,
+	0xe2, 0x74, 0xc8, 0x5b, 0x98, 0xfd, 0x28, 0xf3, 0x67, 0x74, 0x79, 0x03, 0xbe, 0x2d, 0x30, 0x18,
+	0x21, 0x80, 0xf3, 0x9d, 0xe1, 0xd8, 0xe4, 0xf6, 0xc8, 0x97, 0x30, 0x5b, 0x61, 0x81, 0xa7, 0xec,
+	0xfb, 0x1d, 0xdf, 0x80, 0x6f, 0x25, 0xa7, 0x0c, 0x73, 0xc3, 0x39, 0x18, 0x36, 0x47, 0xce, 0xc1,
+	0xd7, 0xf3, 0xfa, 0x5a, 0x14, 0x83, 0x8e, 0xfc, 0x0e, 0x2e, 0x0f, 0x9c, 0x41, 0x8b, 0x37, 0x70,
+	0xa6, 0xfb, 0xaf, 0x03, 0x37, 0x1a, 0x75, 0xc6, 0x42, 0x30, 0x7f, 0x07, 0x73, 0x8a, 0x79, 0xd2,
+	0xea, 0x1b, 0x5c, 0xb5, 0x58, 0xff, 0x6b, 0x96, 0xfe, 0x71, 0xc1, 0xd3, 0xe7, 0xef, 0xf4, 0x7f,
+	0x63, 0x09, 0x4c, 0x68, 0xf5, 0xd8, 0x95, 0xa6, 0x76, 0xf6, 0x38, 0x64, 0x6d, 0xa8, 0xb1, 0x7c,
+	0x0f, 0x63, 0xdd, 0x32, 0xbb, 0xd4, 0x77, 0xad, 0x0d, 0x0c, 0xe7, 0x47, 0xa0, 0xa1, 0x26, 0x30,
+	0xa1, 0x07, 0xa7, 0xda, 0x9d, 0xed, 0xa1, 0xda, 0xbd, 0x7d, 0x48, 0x60, 0x42, 0x3d, 0x92, 0xa0,
+	0xf3, 0xde, 0x24, 0xe8, 0xbd, 0x67, 0x0a, 0xe7, 0xcd, 0xfc, 0x19, 0xb3, 0xf6, 0xc7, 0x29, 0x86,
+	0x2f, 0x3b, 0x58, 0xa3, 0xf9, 0x0c, 0xd3, 0xc3, 0x20, 0xd9, 0xf5, 0xb1, 0x68, 0x4b, 0xf7, 0xaa,
+	0x87, 0x92, 0xf2, 0x61, 0x62, 0xbe, 0x02, 0x1f, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0x7f, 0xf9,
+	0x5a, 0x48, 0xb2, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -610,6 +748,8 @@ type ToDoServiceClient interface {
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	// Read all todo tasks
 	ReadAll(ctx context.Context, in *ReadAllRequest, opts ...grpc.CallOption) (*ReadAllResponse, error)
+	//Delete all the record
+	DeleteAll(ctx context.Context, in *DeleteAllRequest, opts ...grpc.CallOption) (*DeleteAllResponse, error)
 }
 
 type toDoServiceClient struct {
@@ -665,6 +805,15 @@ func (c *toDoServiceClient) ReadAll(ctx context.Context, in *ReadAllRequest, opt
 	return out, nil
 }
 
+func (c *toDoServiceClient) DeleteAll(ctx context.Context, in *DeleteAllRequest, opts ...grpc.CallOption) (*DeleteAllResponse, error) {
+	out := new(DeleteAllResponse)
+	err := c.cc.Invoke(ctx, "/v1.ToDoService/DeleteAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ToDoServiceServer is the server API for ToDoService service.
 type ToDoServiceServer interface {
 	// Create new todo task
@@ -677,6 +826,8 @@ type ToDoServiceServer interface {
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	// Read all todo tasks
 	ReadAll(context.Context, *ReadAllRequest) (*ReadAllResponse, error)
+	//Delete all the record
+	DeleteAll(context.Context, *DeleteAllRequest) (*DeleteAllResponse, error)
 }
 
 func RegisterToDoServiceServer(s *grpc.Server, srv ToDoServiceServer) {
@@ -773,6 +924,24 @@ func _ToDoService_ReadAll_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ToDoService_DeleteAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ToDoServiceServer).DeleteAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v1.ToDoService/DeleteAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ToDoServiceServer).DeleteAll(ctx, req.(*DeleteAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _ToDoService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "v1.ToDoService",
 	HandlerType: (*ToDoServiceServer)(nil),
@@ -797,39 +966,11 @@ var _ToDoService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "ReadAll",
 			Handler:    _ToDoService_ReadAll_Handler,
 		},
+		{
+			MethodName: "DeleteAll",
+			Handler:    _ToDoService_DeleteAll_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "todo-service.proto",
-}
-
-func init() { proto.RegisterFile("todo-service.proto", fileDescriptor_todo_service_4f7b6d3911418310) }
-
-var fileDescriptor_todo_service_4f7b6d3911418310 = []byte{
-	// 413 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x53, 0xcd, 0x8e, 0xda, 0x30,
-	0x10, 0x56, 0x7e, 0x08, 0x30, 0x29, 0x81, 0xba, 0x3d, 0x44, 0x51, 0x55, 0x45, 0x3e, 0xd1, 0x43,
-	0x13, 0x91, 0x4a, 0x3d, 0xa1, 0xa2, 0x0a, 0x9e, 0x20, 0xa5, 0x0f, 0x10, 0xb0, 0x17, 0x59, 0x0a,
-	0x38, 0x9b, 0x18, 0x1e, 0x61, 0x5f, 0x7b, 0x57, 0x8e, 0x63, 0x20, 0xd1, 0x86, 0xcb, 0xde, 0x32,
-	0x9f, 0x67, 0xe6, 0xfb, 0xe6, 0x9b, 0x09, 0x20, 0xc1, 0x09, 0xff, 0x59, 0xd1, 0xf2, 0xc2, 0xf6,
-	0x34, 0x2a, 0x4a, 0x2e, 0x38, 0x32, 0x2f, 0x8b, 0x60, 0x2a, 0xd8, 0x91, 0x56, 0x22, 0x3b, 0x16,
-	0x0a, 0xc4, 0x2f, 0x06, 0xd8, 0x5b, 0xbe, 0xe1, 0xc8, 0x03, 0x93, 0x11, 0xdf, 0x08, 0x8d, 0xb9,
-	0x95, 0x9a, 0x8c, 0xa0, 0xaf, 0x30, 0x10, 0x4c, 0xe4, 0xd4, 0x37, 0x43, 0x63, 0x3e, 0x4e, 0x55,
-	0x80, 0x42, 0x70, 0x09, 0xad, 0xf6, 0x25, 0x2b, 0x04, 0xe3, 0x27, 0xdf, 0xaa, 0xdf, 0xee, 0x21,
-	0xf4, 0x1b, 0x46, 0x25, 0x3d, 0xb2, 0x13, 0xa1, 0xa5, 0x6f, 0x87, 0xc6, 0xdc, 0x4d, 0x82, 0xe8,
-	0xc0, 0xf9, 0x21, 0x6f, 0x64, 0xec, 0xce, 0x4f, 0xd1, 0x56, 0x8b, 0x48, 0xaf, 0xb9, 0x78, 0x05,
-	0x93, 0x75, 0x49, 0x33, 0x41, 0x53, 0xfa, 0x7c, 0xa6, 0x95, 0x40, 0x33, 0xb0, 0xb2, 0x82, 0xd5,
-	0x8a, 0xc6, 0xa9, 0xfc, 0x44, 0xdf, 0xc0, 0x16, 0x7c, 0xc3, 0x6b, 0x45, 0x6e, 0x32, 0x8a, 0x2e,
-	0x8b, 0x48, 0x4a, 0x4f, 0x6b, 0x14, 0x27, 0xe0, 0xe9, 0x06, 0x55, 0xc1, 0x4f, 0x15, 0x7d, 0xa7,
-	0x83, 0x1a, 0xd2, 0xd4, 0x43, 0xe2, 0x18, 0xdc, 0x94, 0x66, 0xa4, 0x9f, 0xb2, 0x5b, 0xf0, 0x07,
-	0x3e, 0xa9, 0x82, 0x5e, 0x8a, 0xc7, 0x22, 0x57, 0x30, 0xf9, 0x5f, 0x90, 0x0f, 0x4c, 0xb9, 0x04,
-	0x4f, 0x37, 0xe8, 0x95, 0xe0, 0xc3, 0xf0, 0x5c, 0xe7, 0x68, 0xe5, 0x3a, 0xc4, 0x0b, 0x98, 0x6c,
-	0x68, 0x4e, 0x1f, 0xd1, 0x77, 0x27, 0x5e, 0x82, 0xa7, 0x4b, 0x1e, 0x11, 0x92, 0x3a, 0xe7, 0x4a,
-	0xd8, 0x84, 0x18, 0x83, 0x27, 0xfd, 0xfa, 0x9b, 0xe7, 0xbd, 0x8c, 0x78, 0x0d, 0xd3, 0x6b, 0x4e,
-	0x2f, 0xc5, 0x77, 0x18, 0xc8, 0xf9, 0x2b, 0xdf, 0x0c, 0xad, 0x96, 0x2d, 0x0a, 0x4e, 0x5e, 0x0d,
-	0x70, 0x65, 0xfc, 0x4f, 0x9d, 0x3c, 0x8a, 0xc1, 0x51, 0xd7, 0x80, 0x3e, 0xcb, 0xd4, 0xd6, 0x69,
-	0x05, 0xe8, 0x1e, 0x6a, 0x28, 0x7f, 0x80, 0x2d, 0x55, 0xa0, 0xa9, 0x7c, 0xbb, 0x3b, 0x8a, 0x60,
-	0x76, 0x03, 0x9a, 0xd4, 0x18, 0x1c, 0xb5, 0x03, 0xd5, 0xbb, 0xb5, 0x50, 0xd5, 0xbb, 0xb3, 0xa2,
-	0x18, 0x1c, 0xe5, 0xa1, 0x2a, 0x68, 0xad, 0x40, 0x15, 0x74, 0x2c, 0x4e, 0x60, 0xd8, 0x58, 0x82,
-	0x90, 0xa6, 0xbf, 0x79, 0x18, 0x7c, 0x69, 0x61, 0xaa, 0x66, 0xe7, 0xd4, 0xbf, 0xd7, 0xaf, 0xb7,
-	0x00, 0x00, 0x00, 0xff, 0xff, 0x51, 0xf4, 0xfa, 0x5b, 0xfb, 0x03, 0x00, 0x00,
 }

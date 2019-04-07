@@ -6,11 +6,10 @@ import (
 	"flag"
 	"fmt"
 	// mysql driver
-
-	_ "github.com/go-sql-driver/mysql"
-
 	"grpc-crud/pkg/protocol/grpc"
 	v1 "grpc-crud/pkg/service/v1"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 // Config is configuration for Server

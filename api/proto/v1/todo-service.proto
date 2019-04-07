@@ -107,6 +107,21 @@ message ReadAllResponse{
     repeated ToDo toDos = 2;
 }
 
+//Request data to delete all the records
+message DeleteAllRequest{
+    // API versioning: it is my best practice to specify version explicitly
+    string api = 1;
+}
+
+// Contains list of all todo tasks
+message DeleteAllResponse{
+    // API versioning: it is my best practice to specify version explicitly
+    string api = 1;
+
+    // List of all todo tasks
+    repeated ToDo toDos = 2;
+}
+
 // Service to manage list of todo tasks
 service ToDoService {
     // Create new todo task
