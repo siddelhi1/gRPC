@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	v1 "gRPC/pkg/api/v1"
 	"log"
 	"time"
@@ -101,6 +102,24 @@ func main() {
 		log.Fatalf("Delete failed: %v", err)
 	}
 	log.Printf("Delete result: <%+v>\n\n", res5)
+
+	//Create one more requets to delete ALL activity
+	req7 := v1.CreateRequest{
+		Api: apiVersion,
+		ToDo: &v1.ToDo{
+			Title:       "title (" + pfx + ")",
+			Description: "description (" + pfx + ")",
+			Reminder:    reminder,
+		},
+	}
+	res7, err := c.Create(ctx, &req7)
+	if err != nil {
+		log.Fatalf("Create failed: %v", err)
+	}
+	log.Printf("Create result: <%+v>\n\n", res1)
+
+	id1 := res7.Id
+	fmt.Sprintln("%s\n", id1)
 
 	//Delete all the request
 

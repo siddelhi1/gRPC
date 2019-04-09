@@ -277,21 +277,19 @@ func (s *toDoServiceServer) DeleteAll(ctx context.Context, req *v1.DeleteAllRequ
 	defer c.Close()
 
 	// delete All ToDo
-	res, err := c.ExecContext(ctx, "DELETE FROM services WHERE ID >0")
+	res, err := c.ExecContext(ctx, "DELETE FROM ToDo WHERE ID >0")
 	if err != nil {
 		return nil, status.Error(codes.Unknown, "failed to delete ToDo-> "+err.Error())
 	}
-	/*
-		rows, err := res.RowsAffected()
-		if err != nil {
-			return nil, status.Error(codes.Unknown, "failed to retrieve rows affected value-> "+err.Error())
-		}
+	rows, err := res.RowsAffected()
+	if err != nil {
+		return nil, status.Error(codes.Unknown, "failed to retrieve rows affected value-> "+err.Error())
+	}
 
-		if rows == 0 {
-			return nil, status.Error(codes.NotFound, fmt.Sprintf("ToDo with ID='%d' is not found",
-				req.Id))
-		}
-	*/
+	if rows == 0 {
+		return nil, status.Error(codes.NotFound, fmt.Sprintf("ToDo with ID='%d' is not found",
+			res))
+	}
 	fmt.Printf("%s\n", res)
 
 	return &v1.DeleteAllResponse{

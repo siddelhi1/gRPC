@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"grpc-crud/pkg/cmd"
+	"gRPC/pkg/cmd"
 	"os"
 )
 

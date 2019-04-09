@@ -6,8 +6,8 @@ import (
 	"flag"
 	"fmt"
 	// mysql driver
-	"grpc-crud/pkg/protocol/grpc"
-	v1 "grpc-crud/pkg/service/v1"
+	"grpc/pkg/protocol/grpc"
+	v1 "grpc/pkg/service/v1"
 
 	_ "github.com/go-sql-driver/mysql"
 )

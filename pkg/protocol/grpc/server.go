@@ -2,13 +2,14 @@ package grpc
 
 import (
 	"context"
-	v1 "grpc-crud/pkg/api/v1"
 	"log"
 	"net"
 	"os"
 	"os/signal"
 
 	"google.golang.org/grpc"
+
+	v1 "gRPC/pkg/api/v1"
 )
 
 // RunServer runs gRPC service to publish ToDo service
