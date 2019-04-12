@@ -3,7 +3,6 @@ package v1
 import (
 	"context"
 	"errors"
-	v1 "grpc-crud/pkg/api/v1"
 	"reflect"
 	"testing"
 	"time"
@@ -11,6 +10,8 @@ import (
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
+
+	v1 "gRPC/pkg/api/v1"
 )
 
 func Test_toDoServiceServer_Create(t *testing.T) {
