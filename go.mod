@@ -12,3 +12,43 @@ require (
 	google.golang.org/grpc v1.14.0
 	gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0
 )
+
+
+http://10.5.245.87:8080/enigma/subscription?si=9419111261&productCode=PRIME
+{
+  "si": "9419111261",
+  "productCode": "PRIME",
+  "chargingPrice": 0,
+  "subProductCode": "Annual",
+  "chargeThroughDate": "2020-01-21",
+  "subscriptionStatus": "UNSUBSCRIBED",
+  "subscriptionUpdateDate": "2019-04-12 21:16:30.685",
+  "unsubscriptionReason": "CustomerRequestedCancel",
+  "createDate": "2019-01-22 20:46:29.228",
+  "isMarkedForCancel": true,
+  "chargingCycle": "YEARLY",
+  "productPrice": 999,
+  "lob": "Mobility",
+  "periodStartDate": "2019-01-22",
+  "markedForCancel": true
+}
+
+
+
+http://10.5.245.87:8080/enigma/subscription/v2?si=9419111261&productCode=PRIME
+{
+    "si": "9419111261",
+    "productCode": "PRIME",
+    "chargingPrice": 0,
+    "subProductCode": "Annual",
+    "chargeThroughDate": "2020-01-21",
+    "subscriptionStatus": "SUBSCRIBED",
+    "subscriptionUpdateDate": "2019-04-12 21:16:30.685",
+    "unsubscriptionReason": "CustomerRequestedCancel",
+    "createDate": "2019-01-22 20:46:29.228",
+    "isMarkedForCancel": true,
+    "lob": "Mobility",
+    "periodStartDate": "2019-01-22",
+    "markedForCancel": true
+  }
+]

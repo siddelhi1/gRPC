@@ -10,6 +10,8 @@ import (
 	"google.golang.org/grpc"
 
 	v1 "gRPC/pkg/api/v1"
+	"gRPC/pkg/logger"
+	"gRPC/pkg/protocol/grpc/middleware"
 )
 
 // RunServer runs gRPC service to publish ToDo service
@@ -18,6 +20,11 @@ func RunServer(ctx context.Context, v1API v1.ToDoServiceServer, port string) err
 	if err != nil {
 		return err
 	}
+	//gRPC server startup options
+	opts := []grpc.ServerOption{}
+
+	//add middleware
+	opts = middleware.AddLogging(logger.Log, opts)
 
 	// register service
 	server := grpc.NewServer()
