@@ -126,6 +126,8 @@ func main() {
 	log.Printf("Delete response: Code=%d, Body=%s\n\n", resp.StatusCode, body)
 
 	//Delefe all
+	//req, err = http.NewRequest("DELETE", fmt.Sprintf("%s%s", *address, "/v1/todo"), nil)
+
 	req, err = http.NewRequest("DELETE", fmt.Sprintf("%s%s", *address, "/v1/todo"), nil)
 	resp, err = http.DefaultClient.Do(req)
 	if err != nil {
