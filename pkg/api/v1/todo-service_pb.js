@@ -293,7 +293,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.v1.DeleteAllResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.v1.DeleteAllResponse.repeatedFields_, null);
 };
 goog.inherits(proto.v1.DeleteAllResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -2237,6 +2237,13 @@ proto.v1.DeleteAllRequest.prototype.setApi = function(value) {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.v1.DeleteAllResponse.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -2266,7 +2273,9 @@ proto.v1.DeleteAllResponse.prototype.toObject = function(opt_includeInstance) {
  */
 proto.v1.DeleteAllResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    api: jspb.Message.getFieldWithDefault(msg, 1, "")
+    api: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    todosList: jspb.Message.toObjectList(msg.getTodosList(),
+    proto.v1.ToDo.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -2307,6 +2316,11 @@ proto.v1.DeleteAllResponse.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setApi(value);
       break;
+    case 2:
+      var value = new proto.v1.ToDo;
+      reader.readMessage(value,proto.v1.ToDo.deserializeBinaryFromReader);
+      msg.addTodos(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2343,6 +2357,14 @@ proto.v1.DeleteAllResponse.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getTodosList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      2,
+      f,
+      proto.v1.ToDo.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -2358,6 +2380,40 @@ proto.v1.DeleteAllResponse.prototype.getApi = function() {
 /** @param {string} value */
 proto.v1.DeleteAllResponse.prototype.setApi = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * repeated ToDo toDos = 2;
+ * @return {!Array<!proto.v1.ToDo>}
+ */
+proto.v1.DeleteAllResponse.prototype.getTodosList = function() {
+  return /** @type{!Array<!proto.v1.ToDo>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.v1.ToDo, 2));
+};
+
+
+/** @param {!Array<!proto.v1.ToDo>} value */
+proto.v1.DeleteAllResponse.prototype.setTodosList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.v1.ToDo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.v1.ToDo}
+ */
+proto.v1.DeleteAllResponse.prototype.addTodos = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.v1.ToDo, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ */
+proto.v1.DeleteAllResponse.prototype.clearTodosList = function() {
+  this.setTodosList([]);
 };
 
 

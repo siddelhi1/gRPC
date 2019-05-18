@@ -83,7 +83,7 @@
           "ToDoService"
         ]
       },
-      "post": {
+      "delete": {
         "summary": "Delete all the record",
         "operationId": "DeleteAll",
         "responses": {
@@ -102,12 +102,11 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1DeleteAllRequest"
-            }
+            "name": "api",
+            "description": "API versioning: it is my best practice to specify version explicitly.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -154,7 +153,7 @@
           "ToDoService"
         ]
       },
-      "post": {
+      "delete": {
         "summary": "Delete todo task",
         "operationId": "Delete",
         "responses": {
@@ -179,6 +178,13 @@
             "required": true,
             "type": "string",
             "format": "int64"
+          },
+          {
+            "name": "api",
+            "description": "API versioning: it is my best practice to specify version explicitly.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -188,7 +194,7 @@
     },
     "/v1/todo/{toDo.id}": {
       "put": {
-        "summary": "Update todo task\nUpdate todo task",
+        "summary": "Update todo task",
         "operationId": "Update",
         "responses": {
           "200": {
@@ -227,7 +233,7 @@
         ]
       },
       "patch": {
-        "summary": "Update todo task\nUpdate todo task",
+        "summary": "Update todo task",
         "operationId": "Update2",
         "responses": {
           "200": {
@@ -297,22 +303,18 @@
       },
       "title": "Contains data of created todo task"
     },
-    "v1DeleteAllRequest": {
-      "type": "object",
-      "properties": {
-        "api": {
-          "type": "string",
-          "title": "API versioning: it is my best practice to specify version explicitly"
-        }
-      },
-      "title": "Request data to delete all the records"
-    },
     "v1DeleteAllResponse": {
       "type": "object",
       "properties": {
         "api": {
           "type": "string",
           "title": "API versioning: it is my best practice to specify version explicitly"
+        },
+        "toDos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ToDo"
+          }
         }
       },
       "title": "Contains status of delete operation"

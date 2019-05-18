@@ -151,9 +151,7 @@ message DeleteAllResponse{
     // API versioning: it is my best practice to specify version explicitly
     string api = 1;
 
-    // Contains number of entities have beed deleted
-    // Equals 1 in case of succesfull delete
-  
+    repeated ToDo toDos = 2;
 }
 
 // Service to manage list of todo tasks
@@ -168,6 +166,14 @@ service ToDoService {
 
     }
 
+    // Read all todo tasks
+   rpc ReadAll(ReadAllRequest) returns (ReadAllResponse){
+    option (google.api.http)={
+        get: "/v1/todo/all"
+     
+    };
+}
+
     // Read todo task
     rpc Read(ReadRequest) returns (ReadResponse){
         option (google.api.http)= {
@@ -175,7 +181,6 @@ service ToDoService {
         };
     }
 
-    // Update todo task
      // Update todo task
      rpc Update(UpdateRequest) returns (UpdateResponse){
         option (google.api.http) = {
@@ -188,27 +193,17 @@ service ToDoService {
             }
         };
     }
-
+   //Delete all the record
+   rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse){
+    option (google.api.http) = {
+        delete: "/v1/todo/all"
+       
+    };
+   }
     // Delete todo task
     rpc Delete(DeleteRequest) returns (DeleteResponse){
         option (google.api.http)={
-            post: "/v1/todo/{id}"
-        };
-    }
-
-    // Read all todo tasks
-    rpc ReadAll(ReadAllRequest) returns (ReadAllResponse){
-        option (google.api.http)={
-            get: "/v1/todo/all"
-         
-        };
-    }
-
-    //Delete all the record
-    rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse){
-        option (google.api.http) = {
-            post: "/v1/todo/all"
-            body:"*"
+            delete: "/v1/todo/{id}"
         };
     }
 }

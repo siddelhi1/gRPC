@@ -150,6 +150,61 @@ proto.v1.ToDoServicePromiseClient.prototype.create =
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.v1.ReadAllRequest,
+ *   !proto.v1.ReadAllResponse>}
+ */
+const methodInfo_ToDoService_ReadAll = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.v1.ReadAllResponse,
+  /** @param {!proto.v1.ReadAllRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.v1.ReadAllResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.v1.ReadAllRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.v1.ReadAllResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.v1.ReadAllResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.v1.ToDoServiceClient.prototype.readAll =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/v1.ToDoService/ReadAll',
+      request,
+      metadata || {},
+      methodInfo_ToDoService_ReadAll,
+      callback);
+};
+
+
+/**
+ * @param {!proto.v1.ReadAllRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.v1.ReadAllResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.v1.ToDoServicePromiseClient.prototype.readAll =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/v1.ToDoService/ReadAll',
+      request,
+      metadata || {},
+      methodInfo_ToDoService_ReadAll);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
  *   !proto.v1.ReadRequest,
  *   !proto.v1.ReadResponse>}
  */
@@ -260,116 +315,6 @@ proto.v1.ToDoServicePromiseClient.prototype.update =
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.v1.DeleteRequest,
- *   !proto.v1.DeleteResponse>}
- */
-const methodInfo_ToDoService_Delete = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.v1.DeleteResponse,
-  /** @param {!proto.v1.DeleteRequest} request */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.v1.DeleteResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.v1.DeleteRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.v1.DeleteResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.v1.DeleteResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.v1.ToDoServiceClient.prototype.delete =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/v1.ToDoService/Delete',
-      request,
-      metadata || {},
-      methodInfo_ToDoService_Delete,
-      callback);
-};
-
-
-/**
- * @param {!proto.v1.DeleteRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.v1.DeleteResponse>}
- *     A native promise that resolves to the response
- */
-proto.v1.ToDoServicePromiseClient.prototype.delete =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/v1.ToDoService/Delete',
-      request,
-      metadata || {},
-      methodInfo_ToDoService_Delete);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.v1.ReadAllRequest,
- *   !proto.v1.ReadAllResponse>}
- */
-const methodInfo_ToDoService_ReadAll = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.v1.ReadAllResponse,
-  /** @param {!proto.v1.ReadAllRequest} request */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.v1.ReadAllResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.v1.ReadAllRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.v1.ReadAllResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.v1.ReadAllResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.v1.ToDoServiceClient.prototype.readAll =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/v1.ToDoService/ReadAll',
-      request,
-      metadata || {},
-      methodInfo_ToDoService_ReadAll,
-      callback);
-};
-
-
-/**
- * @param {!proto.v1.ReadAllRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.v1.ReadAllResponse>}
- *     A native promise that resolves to the response
- */
-proto.v1.ToDoServicePromiseClient.prototype.readAll =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/v1.ToDoService/ReadAll',
-      request,
-      metadata || {},
-      methodInfo_ToDoService_ReadAll);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
  *   !proto.v1.DeleteAllRequest,
  *   !proto.v1.DeleteAllResponse>}
  */
@@ -419,6 +364,61 @@ proto.v1.ToDoServicePromiseClient.prototype.deleteAll =
       request,
       metadata || {},
       methodInfo_ToDoService_DeleteAll);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.v1.DeleteRequest,
+ *   !proto.v1.DeleteResponse>}
+ */
+const methodInfo_ToDoService_Delete = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.v1.DeleteResponse,
+  /** @param {!proto.v1.DeleteRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.v1.DeleteResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.v1.DeleteRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.v1.DeleteResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.v1.DeleteResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.v1.ToDoServiceClient.prototype.delete =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/v1.ToDoService/Delete',
+      request,
+      metadata || {},
+      methodInfo_ToDoService_Delete,
+      callback);
+};
+
+
+/**
+ * @param {!proto.v1.DeleteRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.v1.DeleteResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.v1.ToDoServicePromiseClient.prototype.delete =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/v1.ToDoService/Delete',
+      request,
+      metadata || {},
+      methodInfo_ToDoService_Delete);
 };
 
 
