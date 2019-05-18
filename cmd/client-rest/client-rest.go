@@ -111,23 +111,21 @@ func main() {
 	}
 	log.Printf("ReadAll response: Code=%d, Body=%s\n\n", resp.StatusCode, body)
 
-	/*
-		// Call Delete
-		req, err = http.NewRequest("DELETE", fmt.Sprintf("%s%s/%s", *address, "/v1/todo", created.ID), nil)
-		resp, err = http.DefaultClient.Do(req)
-		if err != nil {
-			log.Fatalf("failed to call Delete method: %v", err)
-		}
-		bodyBytes, err = ioutil.ReadAll(resp.Body)
-		resp.Body.Close()
-		if err != nil {
-			body = fmt.Sprintf("failed read Delete response body: %v", err)
-		} else {
-			body = string(bodyBytes)
-		}
-		log.Printf("Delete response: Code=%d, Body=%s\n\n", resp.StatusCode, body)
-	*/
-	//Delefe all
+	// Call Delete
+	req, err = http.NewRequest("DELETE", fmt.Sprintf("%s%s/%s", *address, "/v1/todo", created.ID), nil)
+	resp, err = http.DefaultClient.Do(req)
+	if err != nil {
+		log.Fatalf("failed to call Delete method: %v", err)
+	}
+	bodyBytes, err = ioutil.ReadAll(resp.Body)
+	resp.Body.Close()
+	if err != nil {
+		body = fmt.Sprintf("failed read Delete response body: %v", err)
+	} else {
+		body = string(bodyBytes)
+	}
+	log.Printf("Delete response: Code=%d, Body=%s\n\n", resp.StatusCode, body)
+
 	req, err = http.NewRequest("DELETE", fmt.Sprintf("%s%s", *address, "/v1/todo/all"), nil)
 	resp, err = http.DefaultClient.Do(req)
 	if err != nil {
